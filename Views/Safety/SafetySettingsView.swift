@@ -76,6 +76,9 @@ struct SafetySettingsView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(AppColor.background)
+        .preferredColorScheme(.automatic)
         .navigationTitle("Safety Settings")
         .sheet(isPresented: $showContactPicker) {
             ContactPickerView { contact in

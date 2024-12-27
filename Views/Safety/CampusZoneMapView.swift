@@ -5,6 +5,7 @@ struct CampusZoneMapView: View {
     @StateObject private var viewModel = CampusZoneViewModel()
     @State private var region = MKCoordinateRegion()
     @State private var selectedZone: CampusZone?
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         ZStack {
@@ -17,8 +18,10 @@ struct CampusZoneMapView: View {
                     }
                 }
             }
+            .preferredColorScheme(colorScheme)
             .overlay(alignment: .top) {
                 SafetyLevelLegend()
+                    .background(AppColor.cardBackground.opacity(0.9))
                     .padding()
             }
             

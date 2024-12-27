@@ -35,6 +35,7 @@ struct GroupChatView: View {
                     viewModel.sendMessage()
                 }
             }
+            .background(AppColor.background)
             .navigationTitle("GC Rides")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -47,6 +48,7 @@ struct GroupChatView: View {
                 }
             }
         }
+        .preferredColorScheme(.automatic)
         .sheet(isPresented: $showRules) {
             RulesView()
         }

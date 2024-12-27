@@ -1,15 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var authManager: AuthenticationManager
+    @StateObject private var authManager = AuthenticationManager.shared
     
     var body: some View {
-        Group {
-            if authManager.isAuthenticated {
-                MainTabView()
-            } else {
-                WelcomeView()
-            }
+        if authManager.isAuthenticated {
+            MainTabView()
+        } else {
+            WelcomeView()
         }
     }
 } 
